@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제품 검색 사이트</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: #ffe6e6; /* 연 분홍색 배경 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .search-bar {
+            margin: 20px 0;
+            text-align: center;
+        }
+        #searchInput {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 15px;
+            margin-left: 5px;
+            font-size: 16px;
+            border: none;
+            background-color: #ff9999;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #ff6666;
+        }
+        #productList {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .product {
+            display: inline-block;
+            margin: 10px;
+            text-align: center;
+        }
+        .product img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="제품을 검색하세요...">
+        <button onclick="searchProducts()">검색</button>
+    </div>
+
+    <div id="productList">
+        <!-- 제품 리스트 -->
+        <div class="product" data-name="스마트폰">
+            <a href="https://m.coupang.com/vm/products/7958920851?itemId=22000948791&q=스마트폰&sourceType=search&searchId=19554b83846a4078afdb9c423a7fc38b&vendorItemId=89048476851&filterKey=&wTrackId=17258391966625869836687_1725839709964&wEntrySource=srp_product_click&uriScheme=uriScheme">
+                <img src="images/스마트폰.jpeg" alt="스마트폰">
+                <p>스마트폰</p>
+            </a>
+        </div>
+        <div class="product" data-name="빅트랙 2024 브이북 14 셀러론 인텔 11세대, 화이트, 256GB, 8GB, WIN11 Home">
+            <a href="https://m.coupang.com/vm/products/8074991230?itemId=22745090662&q=%EB%85%B8%ED%8A%B8%EB%B6%81&sourceType=srp_product_ads&searchId=7c5b6b623bd5450d8b1aa4e0d7d69989&vendorItemId=89780320659&clickEventId=9aa480e0-6e3c-11ef-adf3-0d542500dbdd&korePlacement=15&koreSubPlacement=1">
+                <img src="images/노트북.jpeg" alt="노트북">
+                <p>빅트랙 2024 브이북 14 셀러론 인텔 11세대, 화이트, 256GB, 8GB, WIN11 Home</p>
+            </a>
+        </div>
+        <div class="product" data-name="바른생각 익스트림 에어핏 콘돔, 10개입, 3개">
+            <a href="https://m.coupang.com/vm/products/7158968254?itemId=18741914195&q=콘돔&sourceType=srp_product_ads&searchId=333918c78d0d48d6afd1477eb76f4911&vendorItemId=70299640612&clickEventId=37eb4d10-6e3e-11ef-8532-74c2a1f44dca&korePlacement=15&koreSubPlacement=1&filterKey=&wTrackId=17258391966625869836687_1725839901235&wEntrySource=srp_product_click&uriScheme=uriScheme">
+                <img src="images/바른생각 익스트림 에어핏 콘돔, 10개입, 3개.jpeg" alt="태블릿">
+                <p>바른생각 익스트림 에어핏 콘돔, 10개입, 3개</p>
+            </a>
+        </div>
+        <div class="product" data-name="stsm 장미 딜도 진동 /신축진동/ 혀 핥성 내부자극 진동모드 클리 A스팟 G스팟 여성 여성용 성인용품, 연보라색, 1개">
+            <a href="https://link.coupang.com/re/SHARESDPNUL?pageKey=8040050834&itemId=23757045213&vendorItemId=90781504792">
+                <img src="images/여성 딜도.jpeg" alt="stsm 장미 딜도 진동 /신축진동/ 혀 핥성 내부자극 진동모드 클리 A스팟 G스팟 여성 여성용 성인용품, 연보라색, 1개">
+                <p>stsm 장미 딜도 진동 /신축진동/ 혀 핥성 내부자극 진동모드 클리 A스팟 G스팟 여성 여성용 성인용품, 연보라색, 1개</p>
+            </a>
+        </div>
+        <!-- 추가 제품을 여기에 추가할 수 있습니다 -->
+    </div>
+
+    <script>
+        function searchProducts() {
+            const input = document.getElementById('searchInput').value.toLowerCase();
+            const products = document.querySelectorAll('.product');
+
+            products.forEach(product => {
+                const name = product.getAttribute('data-name').toLowerCase();
+                if (name.includes(input)) {
+                    product.style.display = 'inline-block';
+                } else {
+                    product.style.display = 'none';
+                }
+            });
+        }
+    </script>
+
+</body>
+</html>
